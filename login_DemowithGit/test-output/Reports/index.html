@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.0"},"runtime":{"name":"Java HotSpot(TM) 64-Bit Server VM","version":"25.261-b12"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1614939245","nanos":729000000}}},{"source":{"uri":"file:///E:/Aakash/Automation/login_DemowithGit/src/test/resources/Features/login.feature","data":"Feature: Verify the login page functionality\r\n\r\n  Scenario Outline: Verify login functionality with valid Username and Password\r\n    Given User is at login page and enter \u003cURL\u003e\r\n    When User enters \u003cUsername\u003e and \u003cPassword\u003e\r\n    And User clicks on login button\r\n    Then User should be able to navigates to homepage\r\n\r\n    Examples: \r\n      | URL                                 | Username | Password |\r\n      | https://example.testproject.io/web/ | akash    |    12345 |\r\n      | https://example.testproject.io/web/ | akash2   |    12345 |\r\n      | https://example.testproject.io/web/ | akash3   |      123 |\r\n      | https://example.testproject.io/web/ | akash4   |     1235 |\r\n\r\n  Scenario Outline: Verify login functionality with invalid Username and Password\r\n    Given User is at login page and enter \u003cURL\u003e\r\n    When User enters \u003cUsername\u003e and \u003cPassword\u003e\r\n    And User clicks on login button\r\n    Then User should not be able to navigates to homepage\r\n\r\n    Examples: \r\n      | URL                                 | Username | Password |\r\n      | https://example.testproject.io/web/ | vikash   |    12345 |\r\n      | https://example.testproject.io/web/ | vikash2  |    12345 |\r\n      | https://example.testproject.io/web/ | vikash3  |      123 |\r\n      | https://example.testproject.io/web/ | vikash4  |          |\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///E:/Aakash/Automation/login_DemowithGit/src/test/resources/Features/login.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Verify the login page functionality","children":[{"scenario":{"location":{"line":3,"column":3},"keyword":"Scenario Outline","name":"Verify login functionality with valid Username and Password","steps":[{"location":{"line":4,"column":5},"keyword":"Given ","text":"User is at login page and enter \u003cURL\u003e","id":"79c9f43e-c7b1-459b-a34a-45f8a0c70d11"},{"location":{"line":5,"column":5},"keyword":"When ","text":"User enters \u003cUsername\u003e and \u003cPassword\u003e","id":"326fa89c-750c-47bd-b154-3eff556b0c04"},{"location":{"line":6,"column":5},"keyword":"And ","text":"User clicks on login button","id":"d4cd5dcd-f7ed-4dbf-a679-de3755b1fd87"},{"location":{"line":7,"column":5},"keyword":"Then ","text":"User should be able to navigates to homepage","id":"3a50b146-5af8-4d9f-b4ba-a1954eb0d5b4"}],"examples":[{"location":{"line":9,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":10,"column":7},"cells":[{"location":{"line":10,"column":9},"value":"URL"},{"location":{"line":10,"column":47},"value":"Username"},{"location":{"line":10,"column":58},"value":"Password"}],"id":"bb7cc8c6-e905-4a74-8b66-cc75c5ceca7d"},"tableBody":[{"location":{"line":11,"column":7},"cells":[{"location":{"line":11,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":11,"column":47},"value":"akash"},{"location":{"line":11,"column":61},"value":"12345"}],"id":"560acb73-f584-4ef1-a411-045c8e33463f"},{"location":{"line":12,"column":7},"cells":[{"location":{"line":12,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":12,"column":47},"value":"akash2"},{"location":{"line":12,"column":61},"value":"12345"}],"id":"7f7a0f79-6a0f-41eb-8661-7aa71986da3b"},{"location":{"line":13,"column":7},"cells":[{"location":{"line":13,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":13,"column":47},"value":"akash3"},{"location":{"line":13,"column":63},"value":"123"}],"id":"d88b18f1-cb0a-4a44-b15e-c199bb6835c1"},{"location":{"line":14,"column":7},"cells":[{"location":{"line":14,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":14,"column":47},"value":"akash4"},{"location":{"line":14,"column":62},"value":"1235"}],"id":"b1440da8-96d1-472e-a557-0fb7a8055e17"}],"id":"28d54b9e-3f6e-4819-a04b-9b3d1b64f59a"}],"id":"b11a5c3d-baf9-4ebf-a36f-26e0b593149d"}},{"scenario":{"location":{"line":16,"column":3},"keyword":"Scenario Outline","name":"Verify login functionality with invalid Username and Password","steps":[{"location":{"line":17,"column":5},"keyword":"Given ","text":"User is at login page and enter \u003cURL\u003e","id":"86c4eb48-958d-437c-8749-a14c5a01f7d4"},{"location":{"line":18,"column":5},"keyword":"When ","text":"User enters \u003cUsername\u003e and \u003cPassword\u003e","id":"06dfe425-a0b5-459a-9866-6ed25b270790"},{"location":{"line":19,"column":5},"keyword":"And ","text":"User clicks on login button","id":"bb542aa3-1896-489c-a306-643754338f2d"},{"location":{"line":20,"column":5},"keyword":"Then ","text":"User should not be able to navigates to homepage","id":"32738d77-af6c-4d7d-b01b-e42c6a8b7e48"}],"examples":[{"location":{"line":22,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":23,"column":7},"cells":[{"location":{"line":23,"column":9},"value":"URL"},{"location":{"line":23,"column":47},"value":"Username"},{"location":{"line":23,"column":58},"value":"Password"}],"id":"cf9d1212-8131-49f3-bd44-22e9e95bfc4f"},"tableBody":[{"location":{"line":24,"column":7},"cells":[{"location":{"line":24,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":24,"column":47},"value":"vikash"},{"location":{"line":24,"column":61},"value":"12345"}],"id":"dff2f05c-a16c-4ca2-af98-7f9ff17d327d"},{"location":{"line":25,"column":7},"cells":[{"location":{"line":25,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":25,"column":47},"value":"vikash2"},{"location":{"line":25,"column":61},"value":"12345"}],"id":"1c7a63f9-216f-4938-bf14-de6c03c7f47c"},{"location":{"line":26,"column":7},"cells":[{"location":{"line":26,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":26,"column":47},"value":"vikash3"},{"location":{"line":26,"column":63},"value":"123"}],"id":"58aeff56-440d-4b48-9040-55e18517df5e"},{"location":{"line":27,"column":7},"cells":[{"location":{"line":27,"column":9},"value":"https://example.testproject.io/web/"},{"location":{"line":27,"column":47},"value":"vikash4"},{"location":{"line":27,"column":67}}],"id":"c2069a8f-a515-42f4-8557-912acf5cd148"}],"id":"88097539-7e8f-4271-b2f9-0db047c9d962"}],"id":"a72429d0-c460-43d6-9eaa-5ef7d90af777"}}]}}},{"pickle":{"id":"cd76a707-063e-4867-978e-14ad792e05af","uri":"file:///E:/Aakash/Automation/login_DemowithGit/src/test/resources/Features/login.feature","name":"Verify login functionality with valid Username and Password","language":"en","steps":[{"text":"User is at login page and enter https://example.testproject.io/web/","id":"c60b46c7-99a9-46b0-9bbd-d3147f505832","astNodeIds":["79c9f43e-c7b1-459b-a34a-45f8a0c70d11","560acb73-f584-4ef1-a411-045c8e33463f"]},{"text":"User enters akash and 12345","id":"3d9cd14d-16d9-4206-86b5-dff458d7af81","astNodeIds":["326fa89c-750c-47bd-b154-3eff556b0c04","560acb73-f584-4ef1-a411-045c8e33463f"]},{"text":"User clicks on login button","id":"c6109716-50f5-476c-a8cd-76036cdfdd59","astNodeIds":["d4cd5dcd-f7ed-4dbf-a679-de3755b1fd87","560acb73-f584-4ef1-a411-045c8e33463f"]},{"text":"User should be able to navigates to homepage","id":"b80a6190-72a3-4202-a2c8-cbbd0fed5d0e","astNodeIds":["3a50b146-5af8-4d9f-b4ba-a1954eb0d5b4","560acb73-f584-4ef1-a411-045c8e33463f"]}],"astNodeIds":["b11a5c3d-baf9-4ebf-a36f-26e0b593149d","560acb73-f584-4ef1-a411-045c8e33463f"]}},{"pickle":{"id":"af2fe326-39b8-4bf9-8335-b624c6059785","uri":"file:///E:/Aakash/Automation/login_DemowithGit/src/test/resources/Features/login.feature","name":"Verify login functionality with valid Username and Password","language":"en","steps":[{"text":"User is at login page and enter https://example.testproject.io/web/","id":"518f2616-2cd3-496f-9be5-558062adee42","astNodeIds":["79c9f43e-c7b1-459b-a34a-45f8a0c70d11","7f7a0f79-6a0f-41eb-8661-7aa71986da3b"]},{"text":"User enters akash2 and 12345","id":"bc83e61c-a5e8-43dd-972e-9bbc30205847","astNodeIds":["326fa89c-750c-47bd-b154-3eff556b0c04","7f7a0f79-6a0f-41eb-8661-7aa71986da3b"]},{"text":"User clicks on login button","id":"61bd4dc9-848f-4000-b47c-2b602f90f3f4","astNodeIds":["d4cd5dcd-f7ed-4dbf-a679-de3755b1fd87","7f7a0f79-6a0f-41eb-8661-7aa71986da3b"]},{"text":"User should be able to navigates to homepage","id":"818e31dd-291d-40ee-a0c5-161b44d2f0f0","astNodeIds":["3a50b146-5af8-4d9f-b4ba-a1954eb0d5b4","7f7a0f79-6a0f-41eb-8661-7aa71986da3b"]}],"astNodeIds":["b11a5c3d-baf9-4ebf-a36f-26e0b593149d","7f7a0f79-6a0f-41eb-8661-7aa71986da3b"]}},{"pickle":{"id":"36c41b6e-6b78-4411-ab81-78001add8c04","uri":"file:///E:/Aakash/Automation/login_DemowithGit/src/test/resources/Features/login.feature","name":"Verify login functionality with valid Username and Password","language":"en","steps":[{"text":"User is at login page and enter https://example.testproject.io/web/",
